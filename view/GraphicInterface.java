@@ -3,84 +3,71 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class GraphicInterface extends JFrame {
-    private JPanel panel;
-    private JLabel title;
 
-    private JComboBox cmbQVariables;
-    private JLabel lblResult;
-    private String[] variablesQ = {"2", "3", "4","5", "6", "7", "8", "9", "10"};
-    private JTextField txtOperation;
-    private JButton btnCalculate;
+    public static final String EXIT = "Exit";
+
+    public static final String CALCULATE = "Calculate";
+    private final JPanel panel;
+    private final JLabel title;
+
+    private final JComboBox<String> cmbQVariables;
+    private final JLabel lblResult;
+    private final String[] variablesQ = {"2", "3", "4","5", "6", "7", "8", "9", "10"};
+    private final JTextField txtOperation;
+    private final JButton btnCalculate;
+
+    private final JButton btnExit;
 
     public GraphicInterface() {
         panel = new JPanel();
-        panel.setSize(300, 300);
+        panel.setSize(300, 900);
 
-        cmbQVariables = new JComboBox();
-
-
-
+        cmbQVariables = new JComboBox<String>();
 
         for (int i = 0; i < Array.getLength(variablesQ); i++) {
             cmbQVariables.addItem(variablesQ[i]);
         }
 
         //create labels
-        title = new JLabel("Calculadora");
+        title = new JLabel("Calculadora: ");
         lblResult = new JLabel("Resultado: ");
 
         //create text field
         txtOperation = new JTextField(20);
 
         //create button
-        btnCalculate = new JButton("Calcular");
+        btnCalculate = new JButton(CALCULATE);
 
-        GridBagLayout gridbag = new GridBagLayout();
-        panel.setLayout(gridbag);
-        GridBagConstraints gbc = new GridBagConstraints();
+        btnExit = new JButton(EXIT);
 
         //add components to the panel
+        title.setBounds(25, 25, 100, 30);
         panel.add(title);
+
+        cmbQVariables.setBounds(115, 30, 100, 20);
         panel.add(cmbQVariables);
+
+        txtOperation.setBounds(25, 85, 100, 20);
         panel.add(txtOperation);
+
+        btnCalculate.setBounds(135, 85, 100, 20);
         panel.add(btnCalculate);
+
+        lblResult.setBounds(25, 125, 100, 20);
         panel.add(lblResult);
 
-        gbc.insets.top = 5;
-        gbc.insets.bottom = 5;
-        gbc.insets.left = 5;
-        gbc.insets.right = 5;
+        btnExit.setBounds(25, 165, 100, 20);
+        panel.add(btnExit);
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gridbag.setConstraints(title, gbc);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gridbag.setConstraints(cmbQVariables, gbc);
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gridbag.setConstraints(lblResult, gbc);
-
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        gridbag.setConstraints(btnCalculate, gbc);
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-
+        panel.setLayout(null);
 
         JFrame frame = new JFrame("Calculadora");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setSize(300, 400);
         frame.setVisible(true);
-
-
-
-
-
-
     }
 }

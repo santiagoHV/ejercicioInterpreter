@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-abstract class UIBuilder {
+public abstract class UIBuilder {
     protected JPanel searchUI;
 
     public abstract void addUIControls();
@@ -13,3 +13,4 @@ abstract class UIBuilder {
         return searchUI;
     }
 }
+
