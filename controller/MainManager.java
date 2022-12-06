@@ -14,7 +14,6 @@ public class MainManager {
                 System.exit(0);
             }
         });
-        frame.setSize(400, 400);
 
     }
 }
