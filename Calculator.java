@@ -12,7 +12,7 @@ public class Calculator {
     //instantiate the context
     Context ctx = new Context();
 
-    String planeExpression = "(a^b*c%d)";
+    String planeExpression = "(a+b)*(c-d)";
 
     //set the expression to evaluate
     calc.setExpression(planeExpression);
@@ -117,7 +117,7 @@ public class Calculator {
 
       System.out.println(currChar);
 
-      if ((isOperator(currChar) == false) && (!currChar.equals("(")) && (!currChar.equals(")"))) {
+      if ((!isOperator(currChar)) && (!currChar.equals("(")) && (!currChar.equals(")"))) {
         pfExpr = pfExpr + currChar;
       }
       if (currChar.equals("(")) {
@@ -135,7 +135,7 @@ public class Calculator {
       //if the current character is an
       // operator
       if (isOperator(currChar)) {
-        if (s.isEmpty() == false) {
+        if (!s.isEmpty()) {
           tempStr = (String) s.pop();
           String strVal1 = (String) operators.get(tempStr);
 
@@ -147,7 +147,7 @@ public class Calculator {
           while ((val1 >= val2)) {
             pfExpr = pfExpr + tempStr;
             val1 = -100;
-            if (s.isEmpty() == false) {
+            if (!s.isEmpty()) {
               tempStr = (String) s.pop();
               strVal1 = (String) operators.get(tempStr);
               val1 = new Integer(strVal1).intValue();
@@ -161,7 +161,7 @@ public class Calculator {
       }//if
     }// for
 
-    while (s.isEmpty() == false) {
+    while (!s.isEmpty()) {
       tempStr = (String) s.pop();
       pfExpr = pfExpr + tempStr;
     }

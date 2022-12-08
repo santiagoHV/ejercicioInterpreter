@@ -9,6 +9,8 @@ public abstract class UIBuilder {
     public abstract void addUIControls();
     public abstract void initialize();
 
+    public abstract String[] getCalcValues();
+
     public JPanel getSearchUI() {
         return searchUI;
     }

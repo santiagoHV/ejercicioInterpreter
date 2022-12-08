@@ -1,14 +1,16 @@
 package view;
-import java.io.*;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import com.sun.java.swing.plaf.windows.*;
 import java.util.*;
 
 public class ValueFieldsBuilder extends UIBuilder {
 
-    private Integer intFieldCount = 0;
+    //Create JtextField collection
+    private ArrayList<JTextField> txtFields = new ArrayList<JTextField>();
+
+    private Integer intFieldCount;
+
+    private JLabel lblField;
 
     public ValueFieldsBuilder(Integer intFieldCount) {
         this.intFieldCount = intFieldCount;
@@ -16,22 +18,28 @@ public class ValueFieldsBuilder extends UIBuilder {
 
     @Override
     public void addUIControls() {
+        txtFields.clear();
         searchUI = new JPanel();
         searchUI.setLayout(new GridLayout(intFieldCount, 2));
 
         for (int i = 0; i < intFieldCount; i++) {
-            JLabel lblField = new JLabel("Variable : " + (char) (65+i));
-
-            JTextField txtField = new JTextField(10);
-
+            lblField = new JLabel("Variable : " + (char) (97+i));
+            txtFields.add(new JTextField(15));
             searchUI.add(lblField);
-            searchUI.add(txtField);
+            searchUI.add(txtFields.get(i));
         }
-
     }
 
     @Override
-    public void initialize() {
+    public void initialize() {}
 
+    @Override
+    public String[] getCalcValues() {
+        String[] strValues = new String[intFieldCount];
+        for (int i = 0; i < intFieldCount; i++) {
+            strValues[i] = txtFields.get(i).getText();
+        }
+        return strValues;
     }
+
 }

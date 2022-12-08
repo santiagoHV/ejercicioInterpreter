@@ -84,11 +84,10 @@ public class GraphicInterface extends JFrame {
         panel.setLayout(null);
 
         JFrame frame = new JFrame("Calculadora");
-        //frame.add(panel);
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(600, 800);
+        frame.setSize(600, 500);
         frame.setVisible(true);
     }
 
@@ -105,5 +104,13 @@ public class GraphicInterface extends JFrame {
 
     public Integer getValuesAmount() {
         return Integer.parseInt(cmbQVariables.getSelectedItem().toString());
+    }
+
+    public JTextField getTxtOperation() {
+        return txtOperation;
+    }
+
+    public JLabel getLblResult() {
+        return lblResult;
     }
 }
