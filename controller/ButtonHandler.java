@@ -11,8 +11,6 @@ import java.awt.event.ActionListener;
 
 public class ButtonHandler implements ActionListener {
 
-    private Context context;
-
     private final GraphicInterface graphicInterface;
 
     private UIBuilder uiBuilder;
