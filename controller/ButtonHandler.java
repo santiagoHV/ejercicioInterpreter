@@ -15,8 +15,6 @@ public class ButtonHandler implements ActionListener {
 
     private UIBuilder uiBuilder;
 
-    private UIDirector uiDirector;
-
     public ButtonHandler(GraphicInterface graphicInterface) {
         this.graphicInterface = graphicInterface;
     }
@@ -29,7 +27,7 @@ public class ButtonHandler implements ActionListener {
         if (e.getSource() == graphicInterface.getValuesAmountCtrl()) {
             Integer amount = graphicInterface.getValuesAmount();
             uiBuilder = new ValueFieldsBuilder(amount);
-            uiDirector = new UIDirector(uiBuilder);
+            UIDirector uiDirector = new UIDirector(uiBuilder);
             uiDirector.build();
             graphicInterface.displayNewUI(uiBuilder.getSearchUI());
         }
