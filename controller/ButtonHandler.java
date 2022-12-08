@@ -56,7 +56,7 @@ public class ButtonHandler implements ActionListener {
                 ctx.assign((char) (97+i)+"", new Integer(calcValues[i]));
             }
 
-            graphicInterface.getLblResult().setText(graphicInterface.getLblResult().getText() + calc.evaluate());
+            graphicInterface.getLblResult().setText("Resultado: " + calc.evaluate());
         }
     }
 
