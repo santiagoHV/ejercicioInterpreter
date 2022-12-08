@@ -1,4 +1,5 @@
 package controller;
+import javax.swing.*;
 import java.util.HashMap;
 
 public class Context {
@@ -9,7 +10,12 @@ public class Context {
     }
     public int getValue(String var) {
         Integer objInt = (Integer) varList.get(var);
-        return objInt.intValue();
+        try{
+            return objInt.intValue();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Ingresó variables no permitidas en la operación, se toman como 0");
+            return 0;
+        }
     }
 
     public Context() {}
