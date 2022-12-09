@@ -49,7 +49,8 @@ public class ButtonHandler implements ActionListener {
             //Get values from fields
             String [] calcValues = uiBuilder.getCalcValues();
             for (int i=0; i<calcValues.length; i++) {
-                ctx.assign((char) (97+i)+"", new Integer(calcValues[i]));
+                String var = (char) (97+i)+"";
+                ctx.assign(var, new Integer(calcValues[i]));
             }
 
             graphicInterface.getLblResult().setText("Resultado: " + calc.evaluate());
